@@ -4,7 +4,6 @@ import com.csf.spring.Autowired;
 import com.csf.spring.BeanNameAware;
 import com.csf.spring.Component;
 import com.csf.spring.InitializingBean;
-import com.csf.spring.Scope;
 
 @Component
 public class UserService implements BeanNameAware, InitializingBean {
