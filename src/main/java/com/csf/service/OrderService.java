@@ -4,5 +4,4 @@ import com.csf.spring.Component;
 
 @Component
 public class OrderService {
-
 }

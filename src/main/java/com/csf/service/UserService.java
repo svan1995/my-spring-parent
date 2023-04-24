@@ -6,7 +6,7 @@ import com.csf.spring.Component;
 import com.csf.spring.InitializingBean;
 
 @Component
-public class UserService implements BeanNameAware, InitializingBean {
+public class UserService implements BeanNameAware, InitializingBean, UserInterface {
 
     @Autowired
     private OrderService orderService;
@@ -25,5 +25,9 @@ public class UserService implements BeanNameAware, InitializingBean {
 
     public void afterPropertiesSet() {
         System.out.println(beanName + ": --------- afterPropertiesSet");
+    }
+
+    public void test() {
+        System.out.println("hhh");
     }
 }

@@ -86,7 +86,6 @@ public class CSFApplicationContext {
                     }
                 }
             }
-            System.out.println("debug");
         }
     }
 
@@ -102,13 +101,15 @@ public class CSFApplicationContext {
             }
 
 
-            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
-                beanPostProcessor.postProcessBeforeInitialization(beanName, instance);
-            }
+
 
             // Aware回调
             if (instance instanceof BeanNameAware) {
                 ((BeanNameAware) instance).setBeanName(beanName);
+            }
+
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                beanPostProcessor.postProcessBeforeInitialization(beanName, instance);
             }
 
             // 初始化
@@ -117,7 +118,7 @@ public class CSFApplicationContext {
             }
 
             for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
-                beanPostProcessor.postProcessAfterInitialization(beanName, instance);
+                instance = beanPostProcessor.postProcessAfterInitialization(beanName, instance);
             }
 
             return instance;
